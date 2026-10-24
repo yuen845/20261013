@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <!-- 設定網頁使用繁體中文語系。 -->
+  <meta charset="UTF-8">
+  <!-- 設定手機、平板與桌面裝置的響應式視窗。 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <!-- 讓瀏覽器使用淺色介面，避免自動改變指定色彩。 -->
+  <meta name="color-scheme" content="light">
+  <!-- 可以在這裡設定 Google Sheets CSV 網址，設定後會優先使用此網址。 -->
+  <script>
+    // 將下方空字串替換成 Google Sheets 發布 CSV 網址即可覆寫 sketch.js 的設定。
+    window.GOOGLE_SHEET_CSV_URL = "";
+  </script>
+  <!-- 依照使用者指定內容預先連線到 Google Fonts。 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- 依照使用者指定內容預先連線到 Google Fonts 靜態資源網域。 -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- 保留使用者指定的 LXGW WenKai Mono TC Google Fonts 連結原樣。 -->
+  <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&display=swap" rel="stylesheet">
+  <!-- 設定瀏覽器分頁標題。 -->
+  <title>國小閱讀理解小測驗</title>
+  <!-- 設定全螢幕與響應式網頁樣式。 -->
+  <style>
+    /* 讓 HTML 根元素填滿視窗並移除預設空白。 */
+    html, body {
+      width: 100%;
+      min-width: 100%;
+      height: 100%;
+      min-height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    /* 設定頁面背景與整個 HTML 介面的主要字型。 */
+    body {
+      background: #ffc8dd;
+      color: #222222;
+      font-family: "LXGW WenKai Mono TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    }
+    /* 讓 p5.js 畫布成為區塊並填滿整個視窗。 */
+    canvas {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+      touch-action: manipulation;
+    }
+    /* 讓題庫載入提示在畫布繪製期間仍然可見但不阻擋操作。 */
+    #page-loading {
+      position: fixed;
+      inset: 0;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      box-sizing: border-box;
+      pointer-events: none;
+      color: #222222;
+      text-align: center;
+      font-size: clamp(20px, 4vw, 34px);
+      font-family: "LXGW WenKai Mono TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <!-- 在題庫讀取期間顯示不會阻塞畫布的文字提示。 -->
+  <div id="page-loading" aria-live="polite">題庫載入中，請稍候</div>
+  <!-- 載入 p5.js 核心函式庫。 -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.1/lib/p5.min.js"></script>
+  <!-- 載入完整測驗程式。 -->
+  <script src="sketch.js"></script>
+</body>
+</html>
